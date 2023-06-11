@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+struct Student {
+        char name[50];
+        int age;
+        double avg_grade;
+};
+
+int main() {
+
+        int i;
+        double arr[5];
+        struct Student Students[5];
+        printf("Write Student data: ");
+        for(i = 0; i < 5; i++){
+                printf("Student #%d\n", i + 1);
+                printf("Name: ");
+                scanf("%s", Students[i].name);
+                printf("Age: ");
+                scanf("%d", &Students[i].age);
+                printf("Average Grade: ");
+                scanf("%lf", &Students[i].avg_grade);
+                arr[i] = Students[i].avg_grade;
+        }
+
+
+        double max = arr[0];
+        int max_index = 0;
+        for (int i = 1; i < 5; ++i) {
+                if (arr[i] > max) {
+                        max = arr[i];
+                        max_index = i;
+                }
+        }
+
+        printf("Highest Average Grade is: %lf\n", max);
+        printf("Student with the highest Grade is: %s\n", Students[max_index].name);
+        return 0;
+}
